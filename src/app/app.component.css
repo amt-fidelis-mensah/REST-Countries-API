@@ -1,0 +1,17 @@
+app-header {
+  font-family: Nunito Sans, sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.app.dark {
+  background-color: var(--d-bg);
+  color: var(--white);
+}
+
+.app.light {
+  background-color: var(--l-bg);
+  color: var(--l-text);
+}

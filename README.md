@@ -1,6 +1,8 @@
-# - Body Mass Index Calculator solution
+# - REST Countries API
 
-This is a solution to the [Body Mass Index Calculator](https://www.frontendmentor.io/challenges/body-mass-index-calculator-brrBkfSz1T). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+The challenge is to integrate with the [REST Countries V2 API](https://restcountries.com/#api-endpoints-v2) to pull country data and display it like in the designs (Figma file). I was required to use the Angular +
+TypeScript front-end framework. However, I have complete control over which
+packages you use to do things like make HTTP requests or style your project.
 
 ## Table of contents
 
@@ -63,6 +65,9 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - CSS Grid
+- [Font Awesome](https://fontawesome.com)
+- [IcoMoon](https://icomoon.io)
+- [Ionicons](https://ionicons.com)
 - [Bootstrap](https://getbootstrap.com/) - CSS Framework
 - [TypeScript](https://nextjs.org/) - JS Compiler
 - [Angular](https://angular.io/) - JS Framework
@@ -153,3 +158,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+- Moon -<ion-icon name="moon-outline"></ion-icon>
+- Search - <ion-icon name="search-outline"></ion-icon>
+- Back - <ion-icon name="arrow-back-outline"></ion-icon>
