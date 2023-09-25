@@ -1,1 +1,49 @@
-<p>detail works!</p>
+<div *ngIf="country$ | async; let country">
+  <button class="btn" [routerLink]="'/'">
+    <span class="fa fa-arrow-left"></span>
+    Back
+  </button>
+  <img [src]="country.flags.svg" alt="" />
+  <h3 class="h3">
+    {{ country.name.common }}
+  </h3>
+  <p>
+    <strong>Native Name: </strong>
+    {{ country.name.nativeName }}
+  </p>
+  <p>
+    <strong>Population: </strong>
+    {{ country.population | number : "1.0" }}
+  </p>
+  <p>
+    <strong>Region: </strong>
+    {{ country.region }}
+  </p>
+  <p>
+    <strong>Sub Region:</strong>
+    {{ country.subregion }}
+  </p>
+
+  <p>
+    <strong>Capital: </strong>
+    {{ country.capital }}
+  </p>
+  <p>
+    <strong>Top Level Domain: </strong>
+    {{ country.tld }}
+  </p>
+  <p>
+    <strong>Currencies: </strong>
+    {{ country.currencies }}
+  </p>
+  <p>
+    <strong>Languages: </strong>
+    {{ country.languages }}
+  </p>
+  <div *ngIf="borderCountries$ | async; let borderCountries">
+    <p><strong>Border Countries: </strong></p>
+    <div *ngFor="let borderCountry of borderCountries">
+      {{ borderCountry.name }}
+    </div>
+  </div>
+</div>

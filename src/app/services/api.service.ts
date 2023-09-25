@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Country } from '../types/api';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,17 @@ export class ApiService {
 
   getAllCountries() {
     return this.http.get<Country[]>(`${this.api}/all`);
+  }
+
+  getCountryByName(name: string) {
+    return this.http
+      .get<Country[]>(`${this.api}/name/${name}`)
+      .pipe(map(([res]) => res));
+  }
+  getCountriesByCodes(codes: string[]) {
+    return this.http.get<Country[]>(
+      `${this.api}/alpha?codes=${codes.join(',')}`
+    );
   }
 }
 //

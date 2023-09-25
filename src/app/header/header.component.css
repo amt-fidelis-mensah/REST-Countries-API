@@ -21,6 +21,11 @@ div {
 :host-context(.dark) nav {
   background-color: var(--d-element);
 }
+.fixed-top {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
 @media (min-width: 376px) {
   nav {

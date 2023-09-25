@@ -11,9 +11,15 @@ import { DetailComponent } from './pages/detail/detail.component';
 import { CountryCardComponent } from './components/country-card/country-card.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomeComponent, DetailComponent, CountryCardComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    DetailComponent,
+    CountryCardComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [],
+  providers: [ThemeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
