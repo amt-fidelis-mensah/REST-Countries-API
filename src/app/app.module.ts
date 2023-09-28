@@ -10,6 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { CountryCardComponent } from './components/country-card/country-card.component';
 import { FormsModule } from '@angular/forms';
+import { RegionFilterComponent } from './components/region-filter/region-filter.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     DetailComponent,
     CountryCardComponent,
+    RegionFilterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [ThemeService],

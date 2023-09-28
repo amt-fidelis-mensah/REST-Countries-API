@@ -16,19 +16,11 @@
           />
         </div>
       </div>
-      <div class="col-md-4 float-right">
-        <select
-          class="form-select form-control"
-          aria-label="Default select example"
-        >
-          <option selected>Filter by Region</option>
-          <option value="Africa">Africa</option>
-          <option value="America">America</option>
-          <option value="Asia">Asia</option>
-          <option value="Europe">Europe</option>
-          <option value="Oceania">Oceania</option>
-        </select>
-      </div>
+
+      <app-region-filter
+        [options]="regionOptions"
+        [(value)]="regionFilter"
+      ></app-region-filter>
     </div>
   </div>
 </div>
