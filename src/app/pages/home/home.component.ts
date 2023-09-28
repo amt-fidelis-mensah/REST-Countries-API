@@ -10,9 +10,25 @@ import { Country } from 'src/app/types/api';
 })
 export class HomeComponent implements OnInit {
   countries$!: Observable<Country[]>;
+  searchFilter!: string;
+  source!: Country[];
 
   constructor(private api: ApiService) {}
   ngOnInit(): void {
-    this.countries$ = this.api.getAllCountries();
+    this.api.getAllCountries().subscribe((countries) => {
+      this.source = countries;
+    });
+  }
+
+  get countries() {
+    return this.source
+      ? this.source.filter((country) =>
+          this.searchFilter
+            ? country.name.common
+                .toLowerCase()
+                .includes(this.searchFilter.toLowerCase())
+            : country
+        )
+      : this.source;
   }
 }

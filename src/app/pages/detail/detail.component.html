@@ -1,49 +1,84 @@
-<div *ngIf="country$ | async; let country">
-  <button class="btn" [routerLink]="'/'">
-    <span class="fa fa-arrow-left"></span>
-    Back
-  </button>
-  <img [src]="country.flags.svg" alt="" />
-  <h3 class="h3">
-    {{ country.name.common }}
-  </h3>
-  <p>
-    <strong>Native Name: </strong>
-    {{ country.name.nativeName }}
-  </p>
-  <p>
-    <strong>Population: </strong>
-    {{ country.population | number : "1.0" }}
-  </p>
-  <p>
-    <strong>Region: </strong>
-    {{ country.region }}
-  </p>
-  <p>
-    <strong>Sub Region:</strong>
-    {{ country.subregion }}
-  </p>
+<div *ngIf="country$ | async; let country" class="main">
+  <!--  -->
+  <div class="row gy-5">
+    <div class="col">
+      <button class="btn" [routerLink]="'/'">
+        <span class="fa fa-arrow-left"></span>
+        Back
+      </button>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row gy-5">
+      <div class="col"></div>
+    </div>
+    <div class="row gy-5">
+      <div class="col-12 col-xl-6">
+        <!-- Content for the Image of the screen -->
+        <img [src]="country.flags.svg" alt="" />
+      </div>
+      <div class="col-12 col-xl-6">
+        <!-- Content for the Details for the Image -->
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <h3 class="h3">
+              {{ country.name.common }}
+            </h3>
+          </div>
+        </div>
+        <div class="row gy-5">
+          <div class="col-12 col-md-6">
+            <p>
+              <strong>Native Name: </strong>
+              {{ country.name.nativeName }}
+            </p>
+            <p>
+              <strong>Population: </strong>
+              {{ country.population | number : "1.0" }}
+            </p>
+            <p>
+              <strong>Region: </strong>
+              {{ country.region }}
+            </p>
+            <p>
+              <strong>Sub Region:</strong>
+              {{ country.subregion }}
+            </p>
 
-  <p>
-    <strong>Capital: </strong>
-    {{ country.capital }}
-  </p>
-  <p>
-    <strong>Top Level Domain: </strong>
-    {{ country.tld }}
-  </p>
-  <p>
-    <strong>Currencies: </strong>
-    {{ country.currencies }}
-  </p>
-  <p>
-    <strong>Languages: </strong>
-    {{ country.languages }}
-  </p>
-  <div *ngIf="borderCountries$ | async; let borderCountries">
-    <p><strong>Border Countries: </strong></p>
-    <div *ngFor="let borderCountry of borderCountries">
-      {{ borderCountry.name }}
+            <p>
+              <strong>Capital: </strong>
+              {{ country.capital }}
+            </p>
+          </div>
+          <div class="col-12 col-md-6">
+            <p>
+              <strong>Top Level Domain: </strong>
+              {{ country.tld }}
+            </p>
+            <p>
+              <strong>Currencies: </strong>
+              {{ country.currencies }}
+            </p>
+            <p>
+              <strong>Languages: </strong>
+              {{ country.languages }}
+            </p>
+          </div>
+        </div>
+        <div class="row gy-5">
+          <div *ngIf="borderCountries$ | async; let borderCountries">
+            <div class="col-12 col-md-6">
+              <p><strong>Border Countries: </strong></p>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div *ngFor="let borderCountry of borderCountries">
+                {{ borderCountry.name }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

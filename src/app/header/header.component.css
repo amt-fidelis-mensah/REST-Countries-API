@@ -25,6 +25,7 @@ div {
   position: sticky;
   top: 0;
   z-index: 100;
+  /* padding: -1px 8rem; */
 }
 
 @media (min-width: 376px) {

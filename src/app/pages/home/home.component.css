@@ -3,3 +3,41 @@
   row-gap: 1rem;
   column-gap: 1rem;
 }
+
+.grid-responsive {
+  display: grid;
+  grid-template-columns: repeat(autofill, minmax(280px, 1fr));
+}
+/* EDIT THE BELOW STYLES */
+.float-right {
+  float: right;
+}
+
+.filter {
+  margin-top: 3rem;
+}
+.filter-container {
+  position: sticky;
+  top: 5rem;
+
+  z-index: 100;
+}
+/* ENDS HERE
+ */
+:host-context(.light) .search-filter {
+  background-color: var(--l-element);
+  color: var(--l-input);
+}
+
+:host-context(.light) .search-filter input::placeholder {
+  color: var(--l-text);
+}
+
+:host-context(.dark) .search-filter {
+  background-color: var(--d-element);
+  color: var(--d-input);
+}
+
+:host-context(.light) .search-filter input::placeholder {
+  color: var(--d-text);
+}
