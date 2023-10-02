@@ -55,7 +55,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [REST Countries API](https://bmi-calculator-fidelis.netlify.app/)
-- GitHub Repo: [Link to the GitHub Repo](https://github.com/fidelismensah/BMI-Calculator)
+- GitHub Repo: [Link to the GitHub Repo](https://github.com/fidelismensah/REST-Countries-API)
 
 ## My process
 
@@ -72,11 +72,20 @@ Users should be able to:
 - [TypeScript](https://nextjs.org/) - JS Compiler
 - [Angular](https://angular.io/) - JS Framework
 - [Angular](https://angular.io/) - JS Framework
+- [quickType](https://quicktype.io/) - Generate Interface
 - [REST Countries API](https://restcountries.com/#api-endpoints-v2) - REST API
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+This section is to provide a recap of some of the major learnings done while working through the project.
+The major ones are:
+Components
+Services
+Observables
+Routing
+Emitter
+ngModule
+HttpRequest and many others
 
 To see how you can add code snippets, see below:
 API & ANGULAR
@@ -121,9 +130,9 @@ const updateBMI = () => {
 
 ### Useful resources
 
-- [Bootstrap](https://jquery.com/) - This helped me with the transition. I really liked how I was switching betweeen _Metric_ and _Imperial_ easily.
-- [Angular](https://jquery.com/) - This helped me with the transition. I really liked how I was switching betweeen _Metric_ and _Imperial_ easily.
-- [API](https://jquery.com/) - This helped me with the transition. I really liked how I was switching betweeen _Metric_ and _Imperial_ easily.
+- [Bootstrap](https://getbootstrap.com/) - This helped me with the the responsiveness and the countryc card. I really liked how this framework help with the media query.
+- [Angular](https://angular.io/) - The project was biult with Angular, and on like any other, Angular has features that makes programming easy and provides clean codes.
+- [API-Country](https://restcountries.com/#api-endpoints-v2) - Use this to access all the data I needed for the project.
 - [The TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html) - This is an amazing article which helped me finally understand TypeScript. I'd recommend it to anyone still learning this concept. A reader who completes the walkthrough should be able to:
   - Read and understand commonly-used TypeScript syntax and patterns
   - Explain the effects of important compiler options
@@ -142,10 +151,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
