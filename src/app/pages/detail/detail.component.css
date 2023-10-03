@@ -1,42 +1,101 @@
-.container-fluid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
+.main-container {
+  overflow: hidden;
+  object-fit: cover;
 }
 .main {
-  margin: 2rem;
+  margin-bottom: 5rem;
 }
-button {
-  margin-left: 80px;
-  margin-top: 80px;
+.button-container {
+  margin: 3%;
 }
 h3 {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 800;
 }
 .detail-image {
-  height: 45vh;
+  /* height: 45vh; */
   width: 100%;
+  border-radius: 5%;
+  /* margin-right: 20%; */
 }
 .detail-content {
   width: 50%;
 }
+@media screen and (min-width: 800px) {
+  .detail-content {
+    margin-left: 5%;
+  }
+}
 
-.border-countries {
+.border {
   display: flex;
-  justify-content: space-between;
+  margin-top: 5%;
 }
 
 .detail-margin {
   display: flex;
-  justify-content: space-between;
+  margin: 0 3%;
+}
+.border-button {
+  padding: 0rem 1rem;
+  margin-left: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:host-context(.dark) .border-button {
+  background-color: var(--d-element);
+  color: var(--d-text);
+}
+:host-context(.light) .border-button {
+  background-color: var(--l-element);
+  color: var(--l-text);
+}
+:host-context(.dark) button {
+  background-color: var(--d-element);
+  color: var(--d-text);
+}
+:host-context(.light) button {
+  background-color: var(--l-element);
+  color: var(--l-text);
+}
+.border-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns with equal width */
+  gap: 10px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .detail-margin {
     display: block;
     padding-top: 4rem;
     margin-top: auto;
+    width: 100vw;
+  }
+  .detail-content {
+    width: 100%;
+  }
+  .detail-image {
+    width: 80vw;
+  }
+  .margin-border,
+  .margin-tld,
+  .margin-native {
+    margin-top: 2.5rem;
+  }
+
+  /* .border-button {
+  } */
+  .border {
+    display: block;
+    margin: 0;
+  }
+  .border-button {
+    margin-left: 0;
+    padding-right: 2rem;
+  }
+  .border-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    margin-right: 2rem;
   }
 }

@@ -1,9 +1,8 @@
 <!-- SEARCH FILTER AND THE REGION FILTER HTML -->
 
-<!-- REGION FILTER -->
-<div class="container-fluid">
-  <div class="filter-container row">
-    <div class="search-filter-div form-control col-sm-12 col-md-4">
+<div class="circle">
+  <div class="first">
+    <div class="search-filter-div form-control">
       <span class="fa fa-search"></span>
       <input
         class="search-filter"
@@ -15,8 +14,9 @@
         [(ngModel)]="searchFilter"
       />
     </div>
-
-    <div class="region-filter col-sm-12 col-md-6">
+  </div>
+  <div class="second">
+    <div class="region-filter">
       <app-region-filter
         [options]="regionOptions"
         [(value)]="regionFilter"

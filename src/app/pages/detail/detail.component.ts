@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable, mergeMap, of, tap } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { Country } from 'src/app/types/api';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-detail',
@@ -10,7 +11,7 @@ import { Country } from 'src/app/types/api';
   styleUrls: ['./detail.component.css'],
 })
 export class DetailComponent implements OnInit {
-  country$!: Observable<Country>;
+  country$!: Observable<Country | null>;
   borderCountries$!: Observable<Country[]>;
 
   constructor(private api: ApiService, private route: ActivatedRoute) {}
@@ -20,8 +21,19 @@ export class DetailComponent implements OnInit {
       this.country$ = this.api.getCountryByName(params.country).pipe(
         tap((res) => console.log(res)),
         mergeMap((res) => {
-          this.borderCountries$ = this.api.getCountriesByCodes(res.borders);
+          this.borderCountries$ = this.api
+            .getCountriesByCodes(res.borders)
+            .pipe(
+              catchError((error) => {
+                console.error('Error fetching border countries:', error);
+                return of([]); // or any default value or behavior
+              })
+            );
           return of(res);
+        }),
+        catchError((error) => {
+          console.error('Error fetching country by name:', error);
+          return of(null); // or any default value or behavior
         })
       );
     });

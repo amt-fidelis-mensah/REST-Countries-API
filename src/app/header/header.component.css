@@ -22,8 +22,8 @@ div {
   background-color: var(--d-element);
 }
 .fixed-top {
-  position: sticky;
-  top: 0;
+  /* position: sticky;
+  top: 0; */
   z-index: 100;
   /* padding: -1px 8rem; */
 }

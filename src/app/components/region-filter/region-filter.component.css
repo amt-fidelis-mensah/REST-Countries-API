@@ -1,11 +1,11 @@
 :host-context(.light) .region-filter {
   background-color: var(--l-element);
-  color: var(--l-input);
+  color: var(--l-text);
 }
 
 :host-context(.dark) .region-filter {
   background-color: var(--d-element);
-  color: var(--d-input);
+  color: var(--d-text);
 }
 .region-filter {
   border: none;
