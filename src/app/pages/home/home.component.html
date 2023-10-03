@@ -1,22 +1,22 @@
-<div class="container filter-container">
-  <div class="container filter">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="row search-filter">
-          <span class="fa fa-search col"></span>
+<!-- SEARCH FILTER AND THE REGION FILTER HTML -->
 
-          <input
-            class="form-control col-md-4 search-filter"
-            type="text"
-            placeholder="Search for a country"
-            aria-label="default input example"
-            id="countrySearch"
-            name="countrySearch"
-            [(ngModel)]="searchFilter"
-          />
-        </div>
-      </div>
+<!-- REGION FILTER -->
+<div class="container-fluid">
+  <div class="filter-container row">
+    <div class="search-filter-div form-control col-sm-12 col-md-4">
+      <span class="fa fa-search"></span>
+      <input
+        class="search-filter"
+        type="text"
+        placeholder="Search for a country..."
+        aria-label="default input example"
+        id="countrySearch"
+        name="countrySearch"
+        [(ngModel)]="searchFilter"
+      />
+    </div>
 
+    <div class="region-filter col-sm-12 col-md-6">
       <app-region-filter
         [options]="regionOptions"
         [(value)]="regionFilter"
@@ -25,7 +25,7 @@
   </div>
 </div>
 
-<!-- d-flex flex-column flex-sm-row justify-content-between -->
+<!-- COUNTRY CARD INSERTIONS -->
 <div class="container-xxl country-card">
   <div class="row">
     <div class="">

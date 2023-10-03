@@ -1,16 +1,11 @@
-img {
-  width: 100%;
-  object-fit: cover;
-  overflow: hidden;
-}
-.main {
-  position: relative;
-}
-
 .container-fluid {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 50vh;
+}
+.main {
+  margin: 2rem;
 }
 button {
   margin-left: 80px;
@@ -19,4 +14,29 @@ button {
 h3 {
   font-size: 32px;
   font-weight: 800;
+}
+.detail-image {
+  height: 45vh;
+  width: 100%;
+}
+.detail-content {
+  width: 50%;
+}
+
+.border-countries {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-margin {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 600px) {
+  .detail-margin {
+    display: block;
+    padding-top: 4rem;
+    margin-top: auto;
+  }
 }

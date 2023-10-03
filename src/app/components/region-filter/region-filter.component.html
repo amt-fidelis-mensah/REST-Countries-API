@@ -1,9 +1,11 @@
-<div class="col-md-4 float-right">
+<div class="">
   <select
-    class="form-select form-control"
+    class="form-select form-control region-filter"
     aria-label="Default select example"
     [(ngModel)]="selectedOption"
     (ngModelChange)="select($event)"
+    id="filter-id"
+    name="filter-id"
   >
     <option value="" selected>Filter by Region</option>
     <option *ngFor="let option of options" [value]="option">

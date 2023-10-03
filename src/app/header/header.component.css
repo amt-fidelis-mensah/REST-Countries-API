@@ -32,4 +32,7 @@ div {
   nav {
     padding: 1.75rem 2rem;
   }
+  .fixed-top {
+    position: static;
+  }
 }
