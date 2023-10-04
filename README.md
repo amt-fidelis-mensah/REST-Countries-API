@@ -39,22 +39,22 @@ Users should be able to:
 **_Desktop View Metric_**
 
 <figure>
-    <img src="./starter-code/assets/images/markdown/desktopViewMetric.png"
-         alt="Desktop View Metric">
+    <img src="./assets/cover-image.png"
+         alt="Desktop View">
    
 </figure>
 
 **_Desktop View Imperial._**
 
 <figure>
-    <img src="./starter-code/assets/images/markdown/desktopViewImperial.png"
-         alt="Desktop View Imperial">
+    <img src="./assets/mobile-cover.png"
+         alt="Mobile View">
     
 </figure>
 
 ### Links
 
-- Solution URL: [REST Countries API](https://bmi-calculator-fidelis.netlify.app/)
+- Solution URL: [REST Countries API](https://rest-country-api-25202.web.app)
 - GitHub Repo: [Link to the GitHub Repo](https://github.com/fidelismensah/REST-Countries-API)
 
 ## My process
@@ -72,7 +72,7 @@ Users should be able to:
 - [TypeScript](https://nextjs.org/) - JS Compiler
 - [Angular](https://angular.io/) - JS Framework
 - [Angular](https://angular.io/) - JS Framework
-- [quickType](https://quicktype.io/) - Generate Interface
+- [Firebase](https://quicktype.io/) - For Hosting the Site
 - [REST Countries API](https://restcountries.com/#api-endpoints-v2) - REST API
 
 ### What I learned
@@ -92,40 +92,51 @@ API & ANGULAR
 
 ```html
 <h1>Some HTML code I'm proud of</h1>
-<input type="number" class="height-input-value ft-value" placeholder="0" min="0" required />
+<div [ngClass]="theme | async" class="app">
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+</div>
 ```
 
 ```css
 /* Ways to remove the arrows in an input field*/
 /* For WebKit-based browsers */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+:root {
+  --white: hsl(0, 0%, 100%);
+  --l-element: var(--white);
+  --d-bg: hsl(207, 26%, 17%);
+  --l-text: hsl(200, 15%, 8%);
+  --d-text: var(--white);
+  --l-bg: hsl(0, 0%, 98%);
 }
 
-/* For Mozilla Firefox */
-input[type="number"]::-moz-number-spin-box {
-  -moz-appearance: textfield;
+:host-context(.dark) button {
+  background-color: var(--d-element);
+  color: var(--d-text);
+}
+:host-context(.light) button {
+  background-color: var(--l-element);
+  color: var(--l-text);
 }
 ```
 
-```js
-const updateBMI = () => {
-  console.log('...🎉')
+```ts
+export class ApiService {
+  private api = "https://restcountries.com/v3.1";
+
+  constructor(private http: HttpClient) {}
+
+  getAllCountries() {
+    return this.http.get<Country[]>(`${this.api}/all`);
+  }
+
+  getCountryByName(name: string) {
+    return this.http.get<Country[]>(`${this.api}/name/${name}`).pipe(map(([res]) => res));
+  }
+  getCountriesByCodes(codes: string[]) {
+    return this.http.get<Country[]>(`${this.api}/alpha?codes=${codes.join(",")}`);
+  }
 }
- const updateBMI = () => {
-    //Calculate THE BMI in kg and cm
-
-    const heightInCm: number = parseFloat(inputHeight.val() as string);
-    const weightInKg: number = parseFloat(inputWeight.val() as string);
-
-    if (isNaN(heightInCm) || isNaN(weightInKg)) {
-      welcomeBlock.show();
-      resultBlock.hide();
-
-      return;
-    }
 ```
 
 ### Useful resources
