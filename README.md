@@ -36,18 +36,18 @@ Users should be able to:
 ### Screenshot
 
 ![](./screenshot.jpg)
-**_Desktop View Metric_**
+**_Desktop View_**
 
 <figure>
-    <img src="./assets/cover-image.png"
+    <img src="./src/assets/cover-image.png"
          alt="Desktop View">
    
 </figure>
 
-**_Desktop View Imperial._**
+**_Mobile View._**
 
 <figure>
-    <img src="./assets/mobile-cover.png"
+    <img src="./src/assets/mobile-cover.png"
          alt="Mobile View">
     
 </figure>
