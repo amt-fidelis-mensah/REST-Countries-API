@@ -19,7 +19,7 @@ packages you use to do things like make HTTP requests or style your project.
 
 ## Overview
 
-![Design preview for the Body Mass Index Calculator coding challenge](./preview.jpg)
+![Design preview for REST country API Angular-Project](./src/assets/desktop-preview.jpg)
 
 ### The challenge
 
