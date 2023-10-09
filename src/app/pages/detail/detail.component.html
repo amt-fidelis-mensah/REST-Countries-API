@@ -9,6 +9,8 @@
       </div>
     </div>
   </div>
+
+  <!-- Display country details if available -->
   <div *ngIf="country$ | async; let country" class="main">
     <!--  -->
 
@@ -16,7 +18,11 @@
       <div class="row gy-5 detail-margin">
         <div class="col-sm-12 col-md-6 w-100">
           <!-- Content for the Image of the screen -->
-          <img [src]="country.flags.svg" alt="" class="detail-image rounded" />
+          <img
+            [src]="country.flags.svg"
+            alt="country.flags.alt"
+            class="detail-image rounded"
+          />
         </div>
         <div class="col-sm-12 col-md-4 detail-content">
           <!-- Content for the Details for the Image -->
@@ -29,6 +35,7 @@
           </div>
           <div class="row gy-5">
             <div class="col-sm-12 col-md-6 margin-native">
+              <!-- Display native name, population, region, subregion, and capital -->
               <p>
                 <strong>Native Name: </strong>
                 {{ displayNativeName(country.name.nativeName) }}
@@ -53,6 +60,7 @@
               </p>
             </div>
             <div class="col-sm-12 col-md-6 margin-tld">
+              <!-- Display top-level domain, currencies, and languages -->
               <p>
                 <strong>Top Level Domain: </strong>
                 {{ country.tld }}
@@ -82,6 +90,8 @@
                   <div
                     *ngFor="let borderCountry of borderCountries"
                     class="btn border-button shadow"
+                    [routerLink]="'/' + borderCountry.name.common"
+                  
                   >
                     {{ borderCountry.name.common }}
                   </div>

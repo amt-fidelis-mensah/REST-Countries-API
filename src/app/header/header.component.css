@@ -7,6 +7,7 @@ nav {
 
 h2 {
   font-size: 20px;
+  font-weight: 800;
 }
 .dark-mode {
   cursor: pointer;
@@ -14,10 +15,11 @@ h2 {
 div {
   font-weight: 600;
 }
-
+/* Styling based on the context of the host component for light mode */
 :host-context(.light) nav {
   background-color: var(--l-element);
 }
+/* Styling based on the context of the host component for dark mode */
 :host-context(.dark) nav {
   background-color: var(--d-element);
 }

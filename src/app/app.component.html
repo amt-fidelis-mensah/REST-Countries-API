@@ -1,4 +1,7 @@
 <div [ngClass]="theme | async" class="app">
+  <!-- Including the app-header component -->
   <app-header></app-header>
+
+  <!-- Displaying the routed component based on the current route -->
   <router-outlet></router-outlet>
 </div>
