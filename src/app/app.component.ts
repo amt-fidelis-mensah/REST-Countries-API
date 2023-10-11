@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     // Assign the observable theme to the mode$ observable from the theme service
     this.theme = this.themeService.mode$;
+    this.api.getAllCountries().subscribe((res) => console.log(res));
   }
 
   // Method to toggle between light and dark themes

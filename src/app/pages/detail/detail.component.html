@@ -1,8 +1,8 @@
-<div class="main-container">
+<div class="main-container container-fluid detail-alignment">
   <div class="container button-container">
     <div class="row">
       <div class="col-md-12">
-        <button class="btn" [routerLink]="'/'">
+        <button class="btn back-btn shadow" [routerLink]="'/'">
           <span class="fa fa-arrow-left"></span>
           Back
         </button>
@@ -14,9 +14,9 @@
   <div *ngIf="country$ | async; let country" class="main">
     <!--  -->
 
-    <div class="container-fluid">
-      <div class="row gy-5 detail-margin">
-        <div class="col-sm-12 col-md-6 w-100">
+    <div class="container detail-alignment">
+      <div class="row detail-margin">
+        <div class="col-sm-12 col-md-6 w-100 parent-img">
           <!-- Content for the Image of the screen -->
           <img
             [src]="country.flags.svg"
@@ -33,7 +33,7 @@
               </h3>
             </div>
           </div>
-          <div class="row gy-5">
+          <div class="row">
             <div class="col-sm-12 col-md-6 margin-native">
               <!-- Display native name, population, region, subregion, and capital -->
               <p>
@@ -75,7 +75,7 @@
               </p>
             </div>
           </div>
-          <div class="row gy-5">
+          <div class="row">
             <div class="col-md-12 w-100 margin-border">
               <div
                 *ngIf="borderCountries$ | async; let borderCountries"
@@ -91,7 +91,6 @@
                     *ngFor="let borderCountry of borderCountries"
                     class="btn border-button shadow"
                     [routerLink]="'/' + borderCountry.name.common"
-                  
                   >
                     {{ borderCountry.name.common }}
                   </div>

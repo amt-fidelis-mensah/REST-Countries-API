@@ -5,12 +5,14 @@ h5 {
 }
 
 .country-card {
-  margin: 35px 35px;
+  margin: 4rem 4rem;
+  margin-top: 0;
   height: fit-content;
   border-radius: 0.5rem;
   overflow: hidden;
   row-gap: 1rem;
   column-gap: 1rem;
+  margin-bottom: 7rem;
 }
 /* p {
   padding: 0.3rem 0;
