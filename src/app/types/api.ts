@@ -1,3 +1,4 @@
+// A DTO to help with extracting the data
 export interface Country {
   name: {
     common: string;
