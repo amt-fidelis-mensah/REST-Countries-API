@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 // Import the Country type from the API types
 import { Country } from 'src/app/types/api';
 
@@ -10,5 +11,10 @@ import { Country } from 'src/app/types/api';
 export class CountryCardComponent {
   // Input property to receive country data from the parent component
   @Input()
-  country?: Country;
+  country!: Country;
+  constructor(private router: Router) {}
+
+  goToCountryDetail() {
+    this.router.navigate(['/country', this.country.cca3]);
+  }
 }

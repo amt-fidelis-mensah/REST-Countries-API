@@ -1,5 +1,8 @@
 // A DTO to help with extracting the data
+// A DTO to help with extracting the data
 export interface Country {
+  pipe: any;
+  tap(): unknown;
   name: {
     common: string;
     official: string;
@@ -35,9 +38,43 @@ export interface Country {
   population: number;
   fifa: string;
   continents: string[];
+  alpha3Code: string;
   flags: {
     png: string;
     svg: string;
     alt: string;
   };
+}
+export interface CountryResponse {
+  borders: string[];
+  capital: string[];
+  cca3: string;
+  flags: {
+    png: string;
+    svg: string;
+    alt?: string;
+  };
+  languages: {
+    [key: string]: string;
+  };
+  currencies: {
+    [key: string]: {
+      name: string;
+      symbol: string;
+    };
+  };
+  name: {
+    common: string;
+    official: string;
+    nativeName: {
+      [key: string]: {
+        official: string;
+        common: string;
+      };
+    };
+  };
+  population: number;
+  region: string;
+  subregion: string;
+  tld: string[];
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Observable, mergeMap, of, tap } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, Subscription, merge, mergeMap, of, tap } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { Country } from 'src/app/types/api';
 import { catchError } from 'rxjs';
@@ -11,44 +11,41 @@ import { catchError } from 'rxjs';
   styleUrls: ['./detail.component.css'],
 })
 export class DetailComponent implements OnInit {
-  // Observable for the main country details
-  country$!: Observable<Country | null>;
+  // // Observable for the main country details
+  // country$!: Observable<Country | null>;
 
-  // Observable for the main country details
-  borderCountries$!: Observable<Country[]>;
+  // // Observable for the main country details
+  // borderCountries$!: Observable<Country[]>;
+
+  country!: Country | undefined;
+  borderCountries$!: Observable<Country>;
 
   // Constructor with injections of the ApiService and ActivatedRoute
-  constructor(private api: ApiService, private route: ActivatedRoute) {}
+  constructor(
+    private api: ApiService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    // Subscribe to route params to get the country name
-    this.route.params.subscribe((params) => {
-      this.country$ = this.api.getCountryByName(params.country).pipe(
-        tap((res) => console.log(res)),
-        mergeMap((res) => {
-          // Check if res.borders is defined before using it
-          if (res.borders) {
-            this.borderCountries$ = this.api
-              .getCountriesByCodes(res.borders)
-              .pipe(
-                catchError((error) => {
-                  console.error('Error fetching border countries:', error);
-                  return of([]); // Provide a default value or behavior in case of an error
-                })
-              );
-          } else {
-            // Handle the case where borders is undefined
-            this.borderCountries$ = of([]);
-          }
-          return of(res);
-        }),
-        catchError((error) => {
-          console.error('Error fetching country by name:', error);
-          return of(null); // Provide a default value or behavior in case of an error
-        })
-      );
+    this.route.paramMap.subscribe((params) => {
+      const cca3 = this.route.snapshot.paramMap.get('cca3') || '';
+
+      const country = this.api.getCountryByCca3(cca3);
+      if (country) {
+        this.country = country;
+        this.country.borders = this.country.borders.map((cca3) =>
+          this.api.getCountryNameByCca3(cca3)
+        );
+      } else {
+        // Handle the situation when there's no country with the provided cca3 code
+        // It could be showing an error message or redirecting to another page
+        console.error('Country not found');
+      }
     });
   }
+
+  // Subscribe to route params to get the country name
 
   // Functions to display native names, currencies and languages in a correct format
 
@@ -67,9 +64,25 @@ export class DetailComponent implements OnInit {
       .map((item) => item.name)
       .join(', ');
   }
-  displayLanguages(languages: { [key: string]: string }) {
+  displayLanguages(languages: { [key: string]: string } = {}) {
     return Object.values(languages)
       .map((item) => item)
       .join(', ');
   }
+
+  // Function to navigate to the detail page of a bordering country
+  goToBorderCountry(cca3: string) {
+    this.router.navigate(['/country', cca3]);
+  }
+
+  // }
+  // function getObjectValues(obj: Record<string, any>): any[] {
+  //   const values = [];
+  //   for (const key in obj) {
+  //     if (obj.hasOwnProperty(key)) {
+  //       values.push(obj[key]);
+  //     }
+  //   }
+  //   return values;
+  // }
 }

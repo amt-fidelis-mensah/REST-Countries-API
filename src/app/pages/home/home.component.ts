@@ -1,12 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { Observable, Subscription } from 'rxjs';
 
 // Import the ApiService for fetching country data and the Country type
 import { ApiService } from 'src/app/services/api.service';
 import { Country } from 'src/app/types/api';
 
 // Define an array of region options for filtering
-const REGION_OPTIONS = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
+const REGION_OPTIONS = [
+  'Africa',
+  'Antarctic',
+  'Americas',
+  'Asia',
+  'Europe',
+  'Oceania',
+];
 
 @Component({
   selector: 'app-home',
@@ -14,26 +23,22 @@ const REGION_OPTIONS = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  // Variable for the search filter input
   searchFilter!: string;
-  // Variable for the region filter input
-  regionFilter?: string;
-  // Variable to store the source data of countries
+  regionFilter!: string;
   source!: Country[];
-  // Array of region options for the filter dropdown
   regionOptions = REGION_OPTIONS;
 
-  // injecting the ApiService
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private router: Router) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     // Fetch all countries from the API and store them in the 'source' variable
     this.api.getAllCountries().subscribe((countries) => {
       this.source = countries;
     });
   }
-
-  // Getter for the filtered list of countries based on search and region filters
+  // goToCountryDetail(country: Country) {
+  //   this.router.navigate(['/country', country.cca3]);
+  // }
   get countries() {
     return this.source
       ? this.source

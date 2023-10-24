@@ -27,6 +27,7 @@
   </div>
 
   <!-- COUNTRY CARD INSERTIONS -->
+
   <div class="container-xxl country-card">
     <div class="row">
       <div class="">
@@ -38,12 +39,5 @@
         </app-country-card>
       </div>
     </div>
-  </div>
-  <div
-    class="container-fluid row no-result"
-    [ngStyle]="{ visibility: countries.length === 0 ? 'visible' : 'hidden' }"
-  >
-    <div class="col" *ngIf="countries.length === 0">No result found</div>
-    <!-- Other content for when countries.length !== 0 -->
   </div>
 </div>
