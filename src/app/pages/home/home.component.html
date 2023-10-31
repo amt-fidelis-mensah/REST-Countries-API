@@ -31,6 +31,13 @@
   <div class="container-xxl country-card">
     <div class="row">
       <div class="">
+        <h2 class="display-loading" *ngIf="!countries">Loading...</h2>
+        <h2
+          class="display-no-results"
+          *ngIf="countries && countries.length === 0"
+        >
+          No result found
+        </h2>
         <app-country-card
           *ngFor="let country of countries"
           [country]="country"

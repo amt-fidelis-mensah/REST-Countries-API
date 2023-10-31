@@ -17,30 +17,32 @@ export class DetailComponent implements OnInit {
   // // Observable for the main country details
   // borderCountries$!: Observable<Country[]>;
 
-  country!: Country | undefined;
-  borderCountries$!: Observable<Country>;
+  country: Country | undefined;
+  borderCountries: Country[][] = [];
 
   // Constructor with injections of the ApiService and ActivatedRoute
-  constructor(
-    private api: ApiService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
+  constructor(private api: ApiService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((params) => {
-      const cca3 = this.route.snapshot.paramMap.get('cca3') || '';
+    this.route.params.subscribe((params) => {
+      const countryName = params.country;
 
-      const country = this.api.getCountryByCca3(cca3);
-      if (country) {
-        this.country = country;
-        this.country.borders = this.country.borders.map((cca3) =>
-          this.api.getCountryNameByCca3(cca3)
-        );
-      } else {
-        // Handle the situation when there's no country with the provided cca3 code
-        // It could be showing an error message or redirecting to another page
-        console.error('Country not found');
+      // Assign the result directly to 'country'
+      this.country = this.api.getCountryByName(countryName);
+      // Initialize borderCountries as an empty array
+      this.borderCountries = [];
+
+      // Get the cca3 of the main country
+      const borders = this.country?.borders;
+
+      // Get the border countries based on the cca3
+      if (borders) {
+        for (const borderCca3 of borders) {
+          const borderCountry = this.api.getCountryNameByCca3(borderCca3);
+          if (borderCountry) {
+            this.borderCountries.push(borderCountry);
+          }
+        }
       }
     });
   }
@@ -69,20 +71,4 @@ export class DetailComponent implements OnInit {
       .map((item) => item)
       .join(', ');
   }
-
-  // Function to navigate to the detail page of a bordering country
-  goToBorderCountry(cca3: string) {
-    this.router.navigate(['/country', cca3]);
-  }
-
-  // }
-  // function getObjectValues(obj: Record<string, any>): any[] {
-  //   const values = [];
-  //   for (const key in obj) {
-  //     if (obj.hasOwnProperty(key)) {
-  //       values.push(obj[key]);
-  //     }
-  //   }
-  //   return values;
-  // }
 }

@@ -13,8 +13,12 @@ const routes: Routes = [
   },
   // Dynamic route for displaying country details based on the country code in the URL
   {
-    path: 'country/:cca3',
+    path: ':country',
     component: DetailComponent, // Associate the DetailComponent with this route
+  },
+  {
+    path: '**',
+    component: HomeComponent,
   },
 ];
 

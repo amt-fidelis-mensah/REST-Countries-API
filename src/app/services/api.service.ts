@@ -39,12 +39,14 @@ export class ApiService {
     }
   }
 
-  getCountryByCca3(cca3: string): Country | undefined {
-    return this.allCountries.find((country) => country.cca3 === cca3);
+  getCountryByName(name: string): Country | undefined {
+    return this.allCountries.find((country) => country.name.common === name);
   }
 
-  getCountryNameByCca3(cca3: string): string {
-    const country = this.allCountries.find((country) => country.cca3 === cca3);
-    return country ? country.name.common : '';
+  getCountryNameByCca3(cca3: string): Country[] {
+    const countries = this.allCountries.filter(
+      (country) => country.cca3 === cca3
+    );
+    return countries;
   }
 }

@@ -2,22 +2,25 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 5rem;
+  height: 10vh;
   /* padding: 2rem 1rem; */
   /* padding-left: 8rem;
   padding-right: 8rem; */
 }
 
-h2 {
+h3 {
   font-family: Nunito Sans;
-  font-size: 1.5rem;
   font-style: normal;
   font-weight: 800;
 }
 .dark-mode {
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 600;
+  font-size: 16px;
+  font-style: normal;
+  line-height: normal;
+  font-family: Nunito Sans;
 }
 div {
   font-weight: 600;
@@ -32,6 +35,13 @@ div {
 /* Styling based on the context of the host component for dark mode */
 :host-context(.dark) nav {
   background-color: var(--d-element);
+}
+:host-context(.light) .fa {
+  color: var(--d-element);
+}
+/* Styling based on the context of the host component for dark mode */
+:host-context(.dark) .fa {
+  color: var(--l-element);
 }
 .fixed-top {
   /* position: sticky;
@@ -49,6 +59,12 @@ div {
 @media (max-width: 600px) {
   nav {
     padding: 1.75rem 3rem;
+  }
+  h3 {
+    font-size: 14px;
+  }
+  .dark-mode {
+    font-size: 12px;
   }
 }
 /* margin: 3rem 0rem; */

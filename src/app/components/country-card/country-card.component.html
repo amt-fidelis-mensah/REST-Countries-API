@@ -2,7 +2,7 @@
 <div class="country-card">
   <div class="">
     <!-- Conditionally render the card only if a country is available -->
-    <div *ngIf="country" class="card" (click)="goToCountryDetail()">
+    <div *ngIf="country" class="card" [routerLink]="'/' + country.name.common">
       <!-- Country flag image within the card -->
       <div class="card-image">
         <img

@@ -2,6 +2,17 @@
   margin: 0 5rem;
   overflow: hidden;
 }
+.form-control {
+  height: 56px;
+  font-family: Nunito Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+.fa-search {
+  margin: 12px;
+}
 
 .country-card {
   display: grid;
@@ -12,13 +23,13 @@
   display: flex;
   justify-content: space-between;
   /* padding: 0 4rem; */
-  margin: 3rem 2.5rem;
+  margin: 48px 2.5rem;
 }
 .first {
-  width: 80%;
+  width: 75%;
 }
 .second {
-  width: 15%;
+  width: 18%;
 }
 .no-result {
   visibility: hidden;
@@ -40,7 +51,10 @@
   background-color: var(--l-element);
   color: var(--l-input);
 }
-
+:host-context(.dark) .search-filter {
+  background-color: var(--d-element);
+  color: var(--d-input);
+}
 :host-context(.light) .search-filter input::placeholder {
   color: var(--l-text);
 }
@@ -61,6 +75,24 @@
   background-color: var(--l-element);
   color: var(--l-input);
 }
+.display-loading {
+  text-align: center;
+}
+.display-no-results {
+  text-align: center;
+}
+:host-context(.light) .display-loading {
+  color: var(--l-text);
+}
+:host-context(.dark) .display-loading {
+  color: var(--d-text);
+}
+:host-context(.light) .display-no-results {
+  color: var(--l-text);
+}
+:host-context(.dark) .display-no-results {
+  color: var(--d-text);
+}
 
 .search-filter-div {
   display: flex;
@@ -75,10 +107,10 @@
 }
 .search-filter {
   font-family: Nunito Sans;
-  font-size: 1rem;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.25rem;
+  line-height: 20px;
 }
 .region-filter {
   display: contents;
