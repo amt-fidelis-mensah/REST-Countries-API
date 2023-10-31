@@ -4,6 +4,8 @@
 }
 .main {
   margin: 0 8rem;
+  overflow: hidden;
+  object-fit: cover;
 }
 .detail-button {
   margin-top: 70px;
@@ -109,6 +111,7 @@ h3 {
   .border {
     display: block;
     margin: 0;
+    margin-bottom: 32px;
   }
   .border-button {
     margin-left: 0;
@@ -118,8 +121,51 @@ h3 {
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     margin-right: 2rem;
   }
-
-  /* .margin-tld {
-    float: left;
-  } */
+  .details {
+    display: block;
+  }
+  .native-tld {
+    display: block;
+  }
+  .main {
+    margin: 0 28px;
+  }
+  .detail-image {
+    width: 85vw;
+    height: 75%;
+  }
+  strong {
+    font-family: Nunito Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+  }
+  p {
+    margin: 0;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 32px;
+  }
+  .country-name {
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+  }
+  .border-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns with equal width */
+    gap: 10px;
+  }
+  .native-block {
+    margin-bottom: 32px;
+  }
+  .tld-block {
+    margin-bottom: 32px;
+  }
+  .country-detail {
+    width: 85%;
+  }
 }

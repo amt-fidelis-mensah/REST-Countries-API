@@ -39,7 +39,7 @@ Users should be able to:
 **_Desktop View_**
 
 <figure>
-    <img src="./src/assets/desktop-overlap.png"
+    <img src="./src/assets/desktopView.png"
          alt="Desktop View">
    
 </figure>
@@ -47,7 +47,7 @@ Users should be able to:
 **_Mobile View._**
 
 <figure>
-    <img src="./src/assets/mobile-overlap.png"
+    <img src="./src/assets/mobileView.png"
          alt="Mobile View">
     
 </figure>
